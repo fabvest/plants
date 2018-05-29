@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">plants</string>
+    <string name="action_settings">Settings</string>
+    <string name="new_plant">Новое растение</string>
+    <string name="name_plant">Название</string>
+    <string name="place_plant">Место расположения</string>
+    <string name="schedule">Режим полива</string>
+    <string name="add">Добавить</string>
+    <string name="add_first_plant">Добавьте первое растение</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="place_details">Место расположения</string>
+    <string name="earth_details">Влажность почвы</string>
+    <string name="ear_details">Влажность воздуха</string>
+    <string name="temp_details">Температура воздуха</string>
+    <string name="poliv">Полив</string>
+</resources>
