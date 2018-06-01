@@ -5,7 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-
+//тут определяется как именно элемент списка будет реагировать на нажатие
+//по сути весь этот класс говорит что делать, если нажали на какое нибудь растение в списке
 public abstract class RecyclerClickListener implements RecyclerView.OnItemTouchListener {
     private GestureDetector gestureDetector;
     private GestureDetector.OnGestureListener gestureListener =

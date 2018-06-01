@@ -16,9 +16,9 @@ import java.util.HashMap;
 
 import ru.plants.fab.plants.db.AppDatabase;
 import ru.plants.fab.plants.model.Plant;
-
+//активити добавления
 public class AddingActivity extends AppCompatActivity {
-
+    //массив со строками, которые подставляются в выпадающий список
     String[] data = {"Раз в день", "Раз в неделю", "Раз в месяц", "Два раза в месяц"};
 
     Button addButton;
@@ -34,30 +34,19 @@ public class AddingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adding);
 
         db = Room.databaseBuilder(AddingActivity.this, AppDatabase.class, "plantsdb").allowMainThreadQueries().build();
-
+        //адаптер, который подготавливает данные для добавления в выпад. список
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
+        //инициализация выпад списка
         final Spinner spinner = findViewById(R.id.spinnerSchedule);
         spinner.setAdapter(adapter);
 
         spinner.setPrompt("Расписание");
         spinner.setSelection(0);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         name = findViewById(R.id.name_edit);
         place = findViewById(R.id.place_edit);
-
+        //кропка добавления нового растения
         addButton = findViewById(R.id.buttonAdd);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

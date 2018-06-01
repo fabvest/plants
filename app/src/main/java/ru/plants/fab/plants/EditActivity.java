@@ -13,7 +13,7 @@ import android.widget.Spinner;
 
 import ru.plants.fab.plants.db.AppDatabase;
 import ru.plants.fab.plants.model.Plant;
-
+//класс который отвечает за экран редактирования цветка
 public class EditActivity extends AppCompatActivity {
 
     String[] data = {"Раз в день", "Раз в неделю", "Раз в месяц", "Два раза в месяц"};
@@ -39,11 +39,11 @@ public class EditActivity extends AppCompatActivity {
                 update(plant);
             }
         });
-
+        //мы берем айди той записи, которую хотим отредактирует
         int id = getIntent().getIntExtra("id", 1);
-
+        //инициализируем базу данных
         db = Room.databaseBuilder(this, AppDatabase.class, "plantsdb").allowMainThreadQueries().build();
-
+        //загружаем нужну запись и подставляем в активити
         plant = db.mPlantsDao().getPlant(id);
         editName = findViewById(R.id.editName);
         editName.setHint(plant.getName());
@@ -61,7 +61,7 @@ public class EditActivity extends AppCompatActivity {
         shceduleSpinner.setSelection(plant.getSchedule());
 
     }
-
+    //этот метод чет не работает, но должен обновлять запись в базе
     private void update(Plant plant){
         plant.setId(id);
         plant.setName(editName.getText().toString());

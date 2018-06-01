@@ -9,7 +9,7 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 import ru.plants.fab.plants.model.Plant;
-
+//это дао класс. Тут определяется, какие методы будут применяться к той или иной таблице
 @Dao
 public interface PlantsDao {
     @Insert

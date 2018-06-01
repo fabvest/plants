@@ -15,7 +15,8 @@ import java.util.Random;
 
 import ru.plants.fab.plants.db.AppDatabase;
 import ru.plants.fab.plants.model.Plant;
-
+//экран с деталями о растении, с ним поаккуратнее, тут все данные
+//о растении рандомяться, так что не сильно его код используй
 public class DetailsActivity extends AppCompatActivity {
 
     TextView name;
@@ -33,13 +34,13 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        //айди передается в активити из активити родителя, то есть MainActivity
         id = getIntent().getIntExtra("id", 0) + 1;
 
         AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "plantsdb").allowMainThreadQueries().build();
 
         Plant plant = db.mPlantsDao().getPlant(id);
-
+        инициализация всех текстовых вью, которые выводят инфо на экран
         name = findViewById(R.id.nameTextView);
         place = findViewById(R.id.placeTextView);
         earth = findViewById(R.id.earthTextView);
@@ -52,7 +53,7 @@ public class DetailsActivity extends AppCompatActivity {
         earth.setText(new Random().nextInt(100) + "%");
         air.setText(new Random().nextInt(100) + "%");
         temperature.setText(new Random().nextInt(30) + "c");
-
+        //круглая кнопка с ручкой, которая открывает окно с редактированием цветка
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

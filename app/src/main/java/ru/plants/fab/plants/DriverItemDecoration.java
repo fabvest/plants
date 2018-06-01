@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
+//класс, который добавляет черточку между элементами списка растений
 public class DriverItemDecoration extends RecyclerView.ItemDecoration{
     private Drawable mDivider;
 

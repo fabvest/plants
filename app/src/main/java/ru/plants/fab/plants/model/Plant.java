@@ -3,7 +3,9 @@ package ru.plants.fab.plants.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-
+//этот класс - модель, которая определяет таблицу растений в базе данных
+//это аннотации фреймворка Room, @Entyty() это одна из аннотаций
+//будут вопросы конкретнее - пиши
 @Entity(tableName = "plants")
 public class Plant {
     @PrimaryKey(autoGenerate = true)

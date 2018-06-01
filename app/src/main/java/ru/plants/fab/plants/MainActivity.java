@@ -28,8 +28,9 @@ import ru.plants.fab.plants.model.Plant;
 
 import static android.widget.LinearLayout.VERTICAL;
 
+//это главное активити, в котором находится список растений
 public class MainActivity extends AppCompatActivity {
-
+    //переменные для показа списка
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -47,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
         firstPlant = findViewById(R.id.addFirstPlant);
         firstPlant.setVisibility(View.GONE);
-
+        //инициализация базы данных, что бы она работала не в основном потоке
         db = Room.databaseBuilder(MainActivity.this, AppDatabase.class, "plantsdb").allowMainThreadQueries().build();
-
+        //загрузка списка растений
         data = db.mPlantsDao().getAll();
-
+        //если список не пуст, то убераем сообщение добавить первое растение
+        //и выводим список растений
         if(data.size() <= 0){
             firstPlant.setVisibility(View.VISIBLE);
         }else {
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             mAdapter = new RecAdapter(data);
             mRecyclerView.setAdapter(mAdapter);
         }
-
+        //круглая кнопка с плюсом, если нажать - откроется активити с добавлением 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

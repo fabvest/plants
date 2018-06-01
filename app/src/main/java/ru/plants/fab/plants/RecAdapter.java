@@ -11,7 +11,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import ru.plants.fab.plants.model.Plant;
-
+//этот класс является адаптером для списка растений
+//тут заполняется список, еще тут есть класс. который определяет все элементы внутри оной записи списка
 public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder>{
     List<Plant> data;
 
@@ -31,7 +32,7 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder>{
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
-
+    //тут каждый элемент заполняется данными 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Plant plant = data.get(position);
@@ -44,7 +45,8 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder>{
         return data.size();
     }
 
-
+    //этот класс определяет все элементы, которые есть в одном эелементе
+    //кароче название, место и три картинки устанавливаются тут
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView name;
         TextView place;
